@@ -1,0 +1,592 @@
+@import "./colors";
+@import "./globals";
+@import "./breakpoints";
+
+.light-theme {
+	width: 100%;
+	margin: auto;
+	background-color: $lightBg;
+	position: relative;
+	padding-bottom: 51px;
+	transition: all 300ms ease;
+
+	.db-container {
+		width: 90%;
+		margin: auto;
+		height: auto;
+		background-color: transparent;
+		margin-bottom: 48px;
+		max-width: 1112px;
+
+		@include desktop {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+
+		.header-bg {
+			position: absolute;
+			background-color: $lightTopBg;
+			height: 236px;
+			border-radius: 0px 0px 40px 40px;
+			width: 100%;
+			top: 0%;
+			left: 0%;
+			z-index: 0;
+		}
+
+		&__heading {
+			height: 110px;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			background-image: linear-gradient(to right, $lightText, $lightText);
+			background-repeat: no-repeat;
+			background-position: bottom;
+			background-size: 100% 1px;
+			position: relative;
+			z-index: 1;
+
+			@include desktop {
+				background-image: none;
+			}
+
+			h1 {
+				font-size: 2.6rem;
+				color: $lightDarkText;
+			}
+
+			span {
+				font-size: 1.6rem;
+				color: $lightText;
+				font-weight: 700;
+			}
+		}
+
+		&__switch {
+			margin-top: 23px;
+			display: flex;
+			justify-content: space-between;
+			position: relative;
+			z-index: 1;
+
+			@include desktop {
+				display: flex;
+				align-items: center;
+				width: 134px;
+				transform: translateY(-18px);
+			}
+
+			span {
+				font-size: 1.4rem;
+				color: $lightText;
+				font-weight: 700;
+			}
+
+			.btn-light {
+				width: 47px;
+				height: 24px;
+				background-color: $lightToggle;
+				border: none;
+				display: flex;
+				align-items: center;
+				border-radius: 30px;
+				padding: 2px 3px;
+				cursor: pointer;
+				transition: 300ms ease-in-out;
+
+				.toggle {
+					width: 18px;
+					height: 18px;
+					background-color: $lightTopBg;
+					border-radius: 50%;
+					transform: translateX(0%);
+					pointer-events: none;
+					transition: 300ms ease-in-out;
+				}
+
+				.toggle-night {
+					transform: translateX(130%);
+
+					// background-color: $darkTopBg;
+				}
+			}
+
+			// .btn-night {
+			// 	background-image: $darkToggle;
+			// }
+		}
+	}
+
+	.follower-grid {
+		width: 90%;
+		margin: auto;
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: repeat(4, 215px);
+		grid-gap: 24px;
+		position: relative;
+		z-index: 2;
+		justify-content: center;
+		height: auto;
+		max-width: 1112px;
+
+		@include tablet {
+			grid-template-columns: repeat(2, 325px);
+			grid-template-rows: repeat(2, 215px);
+		}
+
+		@include desktop {
+			grid-template-columns: repeat(4, 1fr);
+			grid-template-rows: 215px;
+		}
+
+		&__card {
+			&:nth-child(1) {
+				background-image: linear-gradient(to right, $fb, $fb);
+			}
+			&:nth-child(2) {
+				background-image: linear-gradient(to right, $tw, $tw);
+			}
+			&:nth-child(3) {
+				background-image: $ig;
+			}
+			&:nth-child(4) {
+				background-image: linear-gradient(to right, $yt, $yt);
+
+				.f-count {
+					span {
+						color: $downVote;
+					}
+				}
+			}
+
+			background-color: $lightCardBg;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			height: 100%;
+			justify-content: space-between;
+			padding: 2.8em 0em;
+			border-radius: 5px;
+			background-repeat: no-repeat;
+			background-position: top;
+			background-size: 100% 4px;
+
+			&__social-card {
+				display: flex;
+				align-items: center;
+
+				margin-bottom: 25px;
+
+				span {
+					font-size: 1.2rem;
+					font-weight: 700;
+					color: $lightText;
+				}
+				svg {
+					margin-right: 5px;
+				}
+			}
+
+			h3 {
+				font-size: 5rem;
+				color: $lightDarkText;
+			}
+
+			.follower {
+				font-size: 1.2rem;
+				text-transform: uppercase;
+				letter-spacing: 4px;
+				color: $lightText;
+			}
+
+			.f-count {
+				margin-top: 25px;
+				display: flex;
+				align-items: center;
+				svg {
+					margin-right: 5px;
+				}
+
+				span {
+					color: $upVote;
+				}
+			}
+		}
+	}
+
+	.overview-bg {
+		width: 90%;
+		max-width: 1112px;
+		margin: auto;
+		margin-top: 51px;
+
+		&__headline {
+			font-size: 2.6rem;
+			margin-bottom: 29px;
+			color: $lightText;
+		}
+
+		&__grid {
+			display: grid;
+			width: 100%;
+			height: auto;
+			grid-template-columns: 1fr;
+			grid-template-rows: repeat(8, 125px);
+			grid-gap: 24px;
+			justify-content: center;
+
+			@include tablet {
+				grid-template-columns: 325px 325px;
+				grid-template-rows: repeat(4, 125px);
+			}
+
+			@include desktop {
+				grid-template-columns: repeat(4, 1fr);
+				grid-template-rows: repeat(2, 125px);
+			}
+
+			&__card {
+				background-color: $lightCardBg;
+				border-radius: 5px;
+				padding: 2.6em 3.1em;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+
+				&__social {
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+					span {
+						font-size: 1.4rem;
+						font-weight: 700;
+						color: $lightText;
+					}
+				}
+
+				&__result {
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+
+					h6 {
+						font-size: 2.6rem;
+						color: $lightDarkText;
+					}
+
+					.vote {
+						display: flex;
+						align-items: center;
+						justify-content: space-between;
+
+						svg {
+							margin-right: 5px;
+						}
+
+						span {
+							color: $upVote;
+							font-weight: 700;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.dark-theme {
+	width: 100%;
+	margin: auto;
+	background-color: $darkBg;
+	position: relative;
+	padding-bottom: 51px;
+	transition: all 300ms ease;
+
+	.db-container {
+		width: 90%;
+		margin: auto;
+		height: auto;
+		background-color: transparent;
+		margin-bottom: 48px;
+		max-width: 1112px;
+
+		@include desktop {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+
+		.header-bg {
+			position: absolute;
+			background-color: $darkTopBg;
+			height: 236px;
+			border-radius: 0px 0px 40px 40px;
+			width: 100%;
+			top: 0%;
+			left: 0%;
+			z-index: 0;
+		}
+
+		&__heading {
+			height: 110px;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			background-image: linear-gradient(to right, $darkText, $darkText);
+			background-repeat: no-repeat;
+			background-position: bottom;
+			background-size: 100% 1px;
+			position: relative;
+			z-index: 1;
+
+			@include desktop {
+				background-image: none;
+			}
+
+			h1 {
+				font-size: 2.6rem;
+				color: $darkWhiteText;
+			}
+
+			span {
+				font-size: 1.6rem;
+				color: $darkText;
+				font-weight: 700;
+			}
+		}
+
+		&__switch {
+			margin-top: 23px;
+			display: flex;
+			justify-content: space-between;
+			position: relative;
+			z-index: 1;
+
+			@include desktop {
+				display: flex;
+				align-items: center;
+				width: 134px;
+				transform: translateY(-18px);
+			}
+
+			span {
+				font-size: 1.4rem;
+				color: $darkText;
+				font-weight: 700;
+			}
+
+			.btn-light {
+				width: 47px;
+				height: 24px;
+				background-image: $darkToggle;
+				border: none;
+				display: flex;
+				align-items: center;
+				border-radius: 30px;
+				padding: 2px 3px;
+				cursor: pointer;
+				transition: 300ms ease-in-out;
+
+				.toggle {
+					width: 18px;
+					height: 18px;
+					background-color: $darkTopBg;
+					border-radius: 50%;
+					transform: translateX(0%);
+					pointer-events: none;
+					transition: 300ms ease-in-out;
+				}
+
+				.toggle-night {
+					transform: translateX(130%);
+
+					// background-color: $darkTopBg;
+				}
+			}
+
+			// .btn-night {
+			// 	background-image: $darkToggle;
+			// }
+		}
+	}
+
+	.follower-grid {
+		width: 90%;
+		margin: auto;
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: repeat(4, 215px);
+		grid-gap: 24px;
+		position: relative;
+		z-index: 2;
+		justify-content: center;
+		height: auto;
+		max-width: 1112px;
+
+		@include tablet {
+			grid-template-columns: repeat(2, 325px);
+			grid-template-rows: repeat(2, 215px);
+		}
+
+		@include desktop {
+			grid-template-columns: repeat(4, 1fr);
+			grid-template-rows: 215px;
+		}
+
+		&__card {
+			&:nth-child(1) {
+				background-image: linear-gradient(to right, $fb, $fb);
+			}
+			&:nth-child(2) {
+				background-image: linear-gradient(to right, $tw, $tw);
+			}
+			&:nth-child(3) {
+				background-image: $ig;
+			}
+			&:nth-child(4) {
+				background-image: linear-gradient(to right, $yt, $yt);
+
+				.f-count {
+					span {
+						color: $downVote;
+					}
+				}
+			}
+
+			background-color: $darkCardBg;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			height: 100%;
+			justify-content: space-between;
+			padding: 2.8em 0em;
+			border-radius: 5px;
+			background-repeat: no-repeat;
+			background-position: top;
+			background-size: 100% 4px;
+
+			&__social-card {
+				display: flex;
+				align-items: center;
+
+				margin-bottom: 25px;
+
+				span {
+					font-size: 1.2rem;
+					font-weight: 700;
+					color: $darkText;
+				}
+
+				svg {
+					margin-right: 5px;
+				}
+			}
+
+			h3 {
+				font-size: 5rem;
+				color: $darkWhiteText;
+			}
+
+			.follower {
+				font-size: 1.2rem;
+				text-transform: uppercase;
+				letter-spacing: 4px;
+				color: $darkText;
+			}
+
+			.f-count {
+				margin-top: 25px;
+				display: flex;
+				align-items: center;
+				svg {
+					margin-right: 5px;
+				}
+
+				span {
+					color: $upVote;
+				}
+			}
+		}
+	}
+
+	.overview-bg {
+		width: 90%;
+		max-width: 1112px;
+		margin: auto;
+		margin-top: 51px;
+
+		&__headline {
+			font-size: 2.6rem;
+			margin-bottom: 29px;
+			color: $darkWhiteText;
+		}
+
+		&__grid {
+			display: grid;
+			width: 100%;
+			height: auto;
+			grid-template-columns: 1fr;
+			grid-template-rows: repeat(8, 125px);
+			grid-gap: 24px;
+			justify-content: center;
+
+			@include tablet {
+				grid-template-columns: 325px 325px;
+				grid-template-rows: repeat(4, 125px);
+			}
+
+			@include desktop {
+				grid-template-columns: repeat(4, 1fr);
+				grid-template-rows: repeat(2, 125px);
+			}
+
+			&__card {
+				background-color: $darkCardBg;
+				border-radius: 5px;
+				padding: 2.6em 3.1em;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+
+				&__social {
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+					span {
+						font-size: 1.4rem;
+						font-weight: 700;
+						color: $darkText;
+					}
+				}
+
+				&__result {
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+
+					h6 {
+						font-size: 2.6rem;
+						color: $darkWhiteText;
+					}
+
+					.vote {
+						display: flex;
+						align-items: center;
+						justify-content: space-between;
+
+						svg {
+							margin-right: 5px;
+						}
+
+						span {
+							color: $upVote;
+							font-weight: 700;
+						}
+					}
+				}
+			}
+		}
+	}
+}
